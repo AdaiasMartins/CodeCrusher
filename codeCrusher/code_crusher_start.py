@@ -39,23 +39,16 @@ LOSE = -1
 def createBoard(l, c, u):
   list2d = []
   for i in range(l):
-    coluna = [0] * c;
-    list2d.append(c)
+    coluna = [0] * c
+    list2d.append(coluna)
 
-  numeros =  0
+  numeros = 0
   for i in range(l):
     for j in range(c):
 
       list2d[i][j] = randrange(0, u)
   return list2d
 
-l = 6
-c = 7
-u = 6
-
-list2d = createBoard(l, c, u)
-for line in list2d:
-  print(line)
 #
 
 #
@@ -70,8 +63,11 @@ for line in list2d:
 #
 
 def swap(board, r1, c1, r2, c2):
-  pass
+  p1 = board[r1][c1]
+  p2 = board[r2][c2]
 
+  board[r1][c1] = p2
+  board[r2][c2] = p1
 #
 #  Modify the board to clear all occurences of a given piece, replacing them
 #  with EMPTY.
@@ -83,8 +79,10 @@ def swap(board, r1, c1, r2, c2):
 #  Returns: None -- the game board passed as a parameter is modified
 #
 def clearAll(board, sym):
-  pass
-
+  for l in range(6):
+    for c in range(7):
+      if(board[l][c] == sym):
+        board[l][c] = -1
 #
 #  Insert your implementations of vLineAt and hLineAt here
 #
